@@ -1,8 +1,11 @@
 https://chat.openai.com/share/443336c1-3848-409d-9382-d4b7aa0c71da
 
+This is my version of the DXR inherited from here. https://landelare.github.io/2023/02/18/dxr-tutorial.html
+
+
 This code is a comprehensive example of a DirectX Raytracing (DXR) application using DirectX 12 (D3D12). It covers the entire workflow of a basic DXR application, including window creation, device initialization, resource management, and rendering. Here's an overview of the key parts:
 
-[h1] Window Creation and Main Loop: [/h1]
+<h1> Window Creation and Main Loop: </h1>
 
 The main function sets up a window class and window for the application, initializes DirectX resources, and enters the main message loop. During each loop iteration, Render is called to draw the next frame.
 Initialization Functions:
