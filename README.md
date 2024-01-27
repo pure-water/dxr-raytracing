@@ -10,16 +10,16 @@ This code is a comprehensive example of a DirectX Raytracing (DXR) application u
 The main function sets up a window class and window for the application, initializes DirectX resources, and enters the main message loop. During each loop iteration, Render is called to draw the next frame.
 Initialization Functions:
 
-Init: Initializes various components of the DirectX application.
-InitDevice: Sets up the D3D12 device and command queue.
-InitSurfaces: Initializes the swap chain for image presentation and a descriptor heap for unordered access views (UAVs).
-InitCommand: Creates command allocator and command list.
-InitMeshes: Prepares vertex and index buffers for rendering.
-InitBottomLevel: Creates bottom-level acceleration structures (BLAS) for ray tracing.
-InitScene: Sets up the scene with instances for ray tracing.
-InitTopLevel: Creates a top-level acceleration structure (TLAS) for ray tracing.
-InitRootSignature: Defines the root signature for shader binding.
-InitPipeline: Sets up the ray tracing pipeline state object (PSO).
+- Init: Initializes various components of the DirectX application.
+- InitDevice: Sets up the D3D12 device and command queue.
+- InitSurfaces: Initializes the swap chain for image presentation and a descriptor heap for unordered access views (UAVs).
+- InitCommand: Creates command allocator and command list.
+- InitMeshes: Prepares vertex and index buffers for rendering.
+- InitBottomLevel: Creates bottom-level acceleration structures (BLAS) for ray tracing.
+- InitScene: Sets up the scene with instances for ray tracing.
+- InitTopLevel: Creates a top-level acceleration structure (TLAS) for ray tracing.
+- InitRootSignature: Defines the root signature for shader binding.
+- InitPipeline: Sets up the ray tracing pipeline state object (PSO).
 
 <h2> Rendering and Resource Management:</h2>
 
