@@ -5,7 +5,7 @@ This is my version of the DXR inherited from here. https://landelare.github.io/2
 
 This code is a comprehensive example of a DirectX Raytracing (DXR) application using DirectX 12 (D3D12). It covers the entire workflow of a basic DXR application, including window creation, device initialization, resource management, and rendering. Here's an overview of the key parts:
 
-<h1> Window Creation and Main Loop: </h1>
+<h2> Window Creation and Main Loop: </h2>
 
 The main function sets up a window class and window for the application, initializes DirectX resources, and enters the main message loop. During each loop iteration, Render is called to draw the next frame.
 Initialization Functions:
@@ -20,12 +20,14 @@ InitScene: Sets up the scene with instances for ray tracing.
 InitTopLevel: Creates a top-level acceleration structure (TLAS) for ray tracing.
 InitRootSignature: Defines the root signature for shader binding.
 InitPipeline: Sets up the ray tracing pipeline state object (PSO).
-Rendering and Resource Management:
+
+<h2> Rendering and Resource Management:</h2>
 
 Render: Main rendering function. It updates the scene, sets up the ray tracing pipeline, and dispatches ray tracing commands.
 Resize: Handles window resizing and updates the render target accordingly.
 Flush: Synchronizes GPU execution to ensure all commands have been completed.
-Ray Tracing Specifics:
+
+<h3>> Ray Tracing Specifics:</h3>
 
 The application utilizes DXR for ray tracing. It sets up necessary acceleration structures (BLAS and TLAS), configures the ray tracing pipeline, and dispatches ray tracing commands.
 Shader Management:
