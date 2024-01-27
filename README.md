@@ -23,11 +23,11 @@ InitPipeline: Sets up the ray tracing pipeline state object (PSO).
 
 <h2> Rendering and Resource Management:</h2>
 
-Render: Main rendering function. It updates the scene, sets up the ray tracing pipeline, and dispatches ray tracing commands.
-Resize: Handles window resizing and updates the render target accordingly.
-Flush: Synchronizes GPU execution to ensure all commands have been completed.
+- Render: Main rendering function. It updates the scene, sets up the ray tracing pipeline, and dispatches ray tracing commands.
+- Resize: Handles window resizing and updates the render target accordingly.
+- Flush: Synchronizes GPU execution to ensure all commands have been completed.
 
-<h3>> Ray Tracing Specifics:</h3>
+<h3> Ray Tracing Specifics:</h3>
 
 The application utilizes DXR for ray tracing. It sets up necessary acceleration structures (BLAS and TLAS), configures the ray tracing pipeline, and dispatches ray tracing commands.
 Shader Management:
