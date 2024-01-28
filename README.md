@@ -72,7 +72,7 @@ In a ray tracing pipeline:
 <h3> Why Both BLAS and TLAS? </h3>
 Using both BLAS and TLAS allows for more efficient ray tracing. BLAS can be precomputed and reused (especially for static geometry), saving computation time. TLAS enables dynamic scene updates without the need to reprocess the entire geometry, as only the instance information in TLAS needs to be updated. This separation enhances performance and flexibility in rendering complex scenes with ray tracing.
 
-<h3> the tlas and blas consistent between vulkan and dxr? </h3>
+<h3> The tlas and blas consistent between vulkan and dxr? </h3>
 
 The concepts of Top Level Acceleration Structure (TLAS) and Bottom Level Acceleration Structure (BLAS) are consistent between DirectX Raytracing (DXR, part of DirectX 12) and Vulkan Ray Tracing. Both graphics APIs use these structures as part of their respective ray tracing frameworks, and their fundamental roles are the same. However, there are differences in implementation details and API usage between DXR and Vulkan Ray Tracing. Let's look at the similarities and differences:
 
