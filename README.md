@@ -72,6 +72,31 @@ In a ray tracing pipeline:
 <h3> Why Both BLAS and TLAS? </h3>
 Using both BLAS and TLAS allows for more efficient ray tracing. BLAS can be precomputed and reused (especially for static geometry), saving computation time. TLAS enables dynamic scene updates without the need to reprocess the entire geometry, as only the instance information in TLAS needs to be updated. This separation enhances performance and flexibility in rendering complex scenes with ray tracing.
 
+<h3> Does  blas include world space informatin though? </h3>
+
+No, Bottom Level Acceleration Structures (BLAS) in DirectX Raytracing (DXR) do not include world space information. BLAS are designed to store geometry data (like vertices and triangles) in a way that's optimized for ray tracing, but this data is typically in a local or model space, not world space. Let's elaborate on this:
+
+<h4> Characteristics of BLAS: </h4>
+- Local or Model Space Geometry:
+- BLAS contains geometric information (such as vertices of a mesh) in its local or model space. This means the coordinates of the geometry are relative to a local origin, not the world origin.For instance, if you have a mesh for a cube, the vertices of the cube in BLAS are defined relative to the cube's center or a similar local reference point, not the scene's world space.No World Space Transformations:
+
+- BLAS does not include any transformation data (like position, rotation, scale) that would place the geometry in the world. It's solely focused on storing the geometry itself in an efficient format for ray tracing.
+
+<h4> Purpose of BLAS: </h4>
+
+The main purpose of a BLAS is to provide a compact, efficient representation of geometry for ray intersection tests. It's optimized for quick traversal and intersection calculations without considering where the geometry is situated in the larger scene.
+
+<h3> Integration with TLAS for World Space Representation: </h3>
+World Space Transformations in TLAS:
+
+When you need to place this geometry in the world, you use a Top Level Acceleration Structure (TLAS).
+TLAS contains instances that reference BLAS and include transformation matrices. These matrices are used to translate the geometry from its local space (as defined in BLAS) to the correct position, orientation, and scale in world space.
+Example Scenario:
+
+Suppose you have a BLAS for a simple cube. This cube can be used to represent multiple objects in your scene (like buildings in a cityscape).
+Each building would be an instance in the TLAS, with its own transformation matrix to position it uniquely in the world. However, the underlying geometry data for all these buildings remains the same and is stored just once in the BLAS.
+In summary, BLAS in DXR is focused on storing geometry in a local or model space, without any world space transformations. The placement of this geometry in the world is handled by TLAS, which references the BLAS and applies the necessary transformations. This separation allows for efficient and flexible rendering of complex scenes in ray tracing applications.
+
 <h3> The tlas and blas consistent between vulkan and dxr? </h3>
 
 The concepts of Top Level Acceleration Structure (TLAS) and Bottom Level Acceleration Structure (BLAS) are consistent between DirectX Raytracing (DXR, part of DirectX 12) and Vulkan Ray Tracing. Both graphics APIs use these structures as part of their respective ray tracing frameworks, and their fundamental roles are the same. However, there are differences in implementation details and API usage between DXR and Vulkan Ray Tracing. Let's look at the similarities and differences:
