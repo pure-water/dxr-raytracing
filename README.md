@@ -28,7 +28,7 @@ Initialization Functions:
 - Flush: Synchronizes GPU execution to ensure all commands have been completed.
 
 <h2> Ray Tracing Specifics </h2>
-
+ 
 The application utilizes DXR for ray tracing. It sets up necessary acceleration structures (BLAS and TLAS), configures the ray tracing pipeline, and dispatches ray tracing commands.
 - Shader Management:
  The shaders are presumably contained within the "shader.fxh" file, which is included in the project. These shaders would include the ray generation, miss, and closest hit shaders used in the ray tracing pipeline.
