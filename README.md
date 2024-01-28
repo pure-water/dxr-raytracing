@@ -64,10 +64,10 @@ Dynamic Scenes: TLAS is particularly important for dynamic scenes, as updating o
 
 In a ray tracing pipeline:
 
--Ray Generation: Rays are shot into the scene (e.g., from the camera).
--TLAS Intersection: Each ray first interacts with the TLAS. The TLAS directs the ray to potential BLAS candidates based on the ray's direction and origin.
--BLAS Intersection: Once a BLAS is identified, the ray checks for intersections against the geometry within that BLAS.
--Shading: If an intersection is found, shading calculations (like color, lighting, etc.) are performed.
+- Ray Generation: Rays are shot into the scene (e.g., from the camera).
+- TLAS Intersection: Each ray first interacts with the TLAS. The TLAS directs the ray to potential BLAS candidates based on the ray's direction and origin.
+- BLAS Intersection: Once a BLAS is identified, the ray checks for intersections against the geometry within that BLAS.
+- Shading: If an intersection is found, shading calculations (like color, lighting, etc.) are performed.
 
 <h3> Why Both BLAS and TLAS? </h3>
 Using both BLAS and TLAS allows for more efficient ray tracing. BLAS can be precomputed and reused (especially for static geometry), saving computation time. TLAS enables dynamic scene updates without the need to reprocess the entire geometry, as only the instance information in TLAS needs to be updated. This separation enhances performance and flexibility in rendering complex scenes with ray tracing.
