@@ -58,7 +58,7 @@ While BLAS deals with raw geometry, TLAS operates at a higher level. TLAS is a d
 
 - Scene Organization: TLAS keeps track of various instances of objects (each referencing a BLAS), their transformations, and their positions in the world.
 - Instance Data: Each entry in a TLAS (an instance) points to a BLAS and includes additional data like transformation matrices (to place the object in the world) and material properties.
-Dynamic Scenes: TLAS is particularly important for dynamic scenes, as updating object positions, rotations, or scales involves updating the TLAS.
+- Dynamic Scenes: TLAS is particularly important for dynamic scenes, as updating object positions, rotations, or scales involves updating the TLAS.
 
 <h3> Relationship between BLAS and TLAS </h3>
 
@@ -76,23 +76,26 @@ Using both BLAS and TLAS allows for more efficient ray tracing. BLAS can be prec
 
 The concepts of Top Level Acceleration Structure (TLAS) and Bottom Level Acceleration Structure (BLAS) are consistent between DirectX Raytracing (DXR, part of DirectX 12) and Vulkan Ray Tracing. Both graphics APIs use these structures as part of their respective ray tracing frameworks, and their fundamental roles are the same. However, there are differences in implementation details and API usage between DXR and Vulkan Ray Tracing. Let's look at the similarities and differences:
 
-Similarities in TLAS and BLAS Between DXR and Vulkan
-Purpose and Functionality:
+<h3> Similarities in TLAS and BLAS Between DXR and Vulkan </h3>
 
-Both in DXR and Vulkan, BLAS is used to store geometry data like vertices and triangles, optimizing ray-geometry intersection tests.
-TLAS in both APIs organizes instances of objects in the scene, each referencing a BLAS and including transformation matrices and instance-specific data.
-Ray Tracing Process:
+<h4> Purpose and Functionality: </h4>
+
+- Both in DXR and Vulkan, BLAS is used to store geometry data like vertices and triangles, optimizing ray-geometry intersection tests.
+- TLAS in both APIs organizes instances of objects in the scene, each referencing a BLAS and including transformation matrices and instance-specific data.
+
+<h4> Ray Tracing Process: </h4>
 
 The process of ray tracing in both APIs involves shooting rays that first interact with the TLAS to identify potential BLAS candidates and then test for intersections against the geometry in the BLAS.
 
-Differences in TLAS and BLAS Between DXR and Vulkan
-API Design and Usage:
+ <h3> Differences in TLAS and BLAS Between DXR and Vulkan </h3>
+<h4> API Design and Usage: </h4>
 
 While the overarching concepts are similar, the specific API calls, structures, and the way these acceleration structures are built and updated can differ between DXR and Vulkan. Each API has its own set of functions, parameters, and methodologies for handling these structures.
-Flexibility and Control:
+<h4> Flexibility and Control: </h4>
 
 Vulkan is known for giving developers a high degree of control and flexibility, which extends to its ray tracing functionality. This might mean more complex setup and management of TLAS and BLAS compared to DXR, which aims to simplify certain aspects at the cost of direct low-level control.
-Integration with the Rest of the API:
+
+<h4> Integration with the Rest of the API: </h4>
 
 DXR is integrated into DirectX 12, and its features are designed to work seamlessly with other DirectX 12 features. Vulkan Ray Tracing is an extension to Vulkan, and while it's designed to integrate well with Vulkan's existing features, the way it interacts with the rest of the Vulkan API might differ from DXR's integration with DirectX 12.
 
